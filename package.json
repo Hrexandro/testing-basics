@@ -4,10 +4,9 @@
   "description": "",
   "main": "sum.js",
   "type": "commonjs",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^29.5.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
