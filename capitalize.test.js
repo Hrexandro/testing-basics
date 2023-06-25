@@ -3,6 +3,18 @@
 const capitalize = require('./capitalize');
 
 
-test('happy path', () => {
+test('standard case', () => {
     expect(capitalize("dog")).toBe("Dog");
-  });
+});
+
+test('empty string', () => {
+  expect(capitalize("")).toBe("");
+});
+
+test('wrong input', () => {
+  expect(capitalize(1)).toBe(null);
+});
+
+test('already capitalized', () => {
+  expect(capitalize("A")).toBe("A");
+});
