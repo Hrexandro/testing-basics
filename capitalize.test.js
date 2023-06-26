@@ -7,6 +7,10 @@ test('standard case', () => {
     expect(capitalize("dog")).toBe("Dog");
 });
 
+test('standard case', () => {
+  expect(capitalize("cat")).toBe("Cat");
+});
+
 test('empty string', () => {
   expect(capitalize("")).toBe("");
 });
