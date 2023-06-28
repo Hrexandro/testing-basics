@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest",
     "watch": "jest --watchAll",
-    "latest": "jest --watch calculator.test.js"
+    "latest": "jest --watch caesarCipher.test.js"
   },
   "author": "",
   "license": "ISC"
