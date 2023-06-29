@@ -5,16 +5,30 @@ function caesarCipher (string, shift){
     let result = "";
 
     for (let i = 0; i < string.length; i++){
+        let characterToAdd = string[i]//before shift, stays unchanged if not a letter
+        let alphabetArray = null  
         if (lowerCase.some(e => e === string[i])){
-            result += lowerCase[lowerCase.findIndex(e => e === string[i]) + shift]
+            alphabetArray = lowerCase
         } else if (upperCase.some(e => e === string[i])){
-            result += upperCase[upperCase.findIndex(e => e === string[i]) + shift]
-        } else {
-            result += string[i]
+            alphabetArray = upperCase
+        }
+        
+        function adjustShift(adjustedShift){
+            if ((alphabetArray.findIndex(e => e === string[i]) + adjustedShift) > 25){
+                return adjustShift(adjustedShift - 26)
+            } else if ((alphabetArray.findIndex(e => e === string[i]) + adjustedShift) < 0){
+                return adjustShift(adjustedShift + 26)
+            }
+            return adjustedShift
         }
 
+        if (alphabetArray){//if letter
+            characterToAdd = alphabetArray[alphabetArray.findIndex(e => e === string[i]) + adjustShift(shift)]
+        }
+        result += characterToAdd
     }
     return result
 }
+
 
 module.exports = caesarCipher
